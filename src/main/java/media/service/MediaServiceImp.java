@@ -6,6 +6,8 @@ import media.service.mapper.MediaMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 public class MediaServiceImp implements MediaService {
 
@@ -17,7 +19,10 @@ public class MediaServiceImp implements MediaService {
 
     public MediaContent createContentMetaData(MediaContent content) {
         if (content != null) {
-            return mediaRepository.save(content);
+            return mapper
+                    .fromDataModel(mediaRepository
+                            .save(mapper
+                                    .toDataModel(content)));
         }
         throw new IllegalArgumentException("content");
     }

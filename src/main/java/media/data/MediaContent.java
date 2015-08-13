@@ -19,6 +19,7 @@ public class MediaContent {
     private String contentUrl;
     private Date   dateTime;
 
+    public MediaContent(){}
     public MediaContent(String name, Date dateTime, String longitude, String latitude, String contentUrl) {
 
         this.name = name;

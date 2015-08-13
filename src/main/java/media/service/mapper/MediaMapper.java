@@ -1,19 +1,27 @@
 package media.service.mapper;
 
 import media.domain.MediaContent;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MediaMapper {
 
-    public media.data.MediaContent Map(MediaContent mediaContent) {
+    ModelMapper modelMapper = new ModelMapper();
 
-        return new media.data.MediaContent(
-                mediaContent.getName(),
-                mediaContent.getDateTime(),
-                mediaContent.getLongitude(),
-                mediaContent.getLatitude(),
-                mediaContent.getContentUrl());
-
+    private MediaMapper() {
+        modelMapper.createTypeMap(MediaContent.class, media.data.MediaContent.class);
+        modelMapper.createTypeMap(media.data.MediaContent.class, MediaContent.class);
+        modelMapper.validate();
     }
+
+    public media.data.MediaContent toDataModel(MediaContent mediaContent) {
+        return modelMapper.map(mediaContent, media.data.MediaContent.class);
+    }
+
+    public media.domain.MediaContent fromDataModel(media.data.MediaContent mediaContent) {
+        return modelMapper.map(mediaContent, media.domain.MediaContent.class);
+    }
+
+
 }
