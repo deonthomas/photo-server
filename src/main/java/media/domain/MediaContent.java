@@ -9,8 +9,9 @@ public class MediaContent {
     private String longitude;
     private String latitude;
     private String contentUrl;
+    private String media;
 
-      public void setName(String name){
+    public void setName(String name){
         this.name = name;
     }
 
@@ -49,5 +50,9 @@ public class MediaContent {
 
     public void setContentUrl(String contentUrl) {
         this.contentUrl = contentUrl;
+    }
+
+    public String getMedia() {
+        return media;
     }
 }

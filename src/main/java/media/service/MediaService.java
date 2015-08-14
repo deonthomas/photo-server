@@ -10,5 +10,5 @@ public interface MediaService {
 
     MediaContent createContentMetaData(MediaContent mediaContent);
 
-    Iterable<media.data.MediaContent> getMediaContents();
+    MediaContent getMediaContentById(Long mediaId);
 }

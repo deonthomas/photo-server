@@ -5,8 +5,7 @@ import media.repository.interfaces.MediaRepository;
 import media.service.mapper.MediaMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
+import static Utils.StringUtils.fromBase64;
 
 @Service
 public class MediaServiceImp implements MediaService {
@@ -19,16 +18,20 @@ public class MediaServiceImp implements MediaService {
 
     public MediaContent createContentMetaData(MediaContent content) {
         if (content != null) {
-            return mapper
-                    .fromDataModel(mediaRepository
-                            .save(mapper
-                                    .toDataModel(content)));
+
+            if(content.getMedia()!= null) {
+                byte[] media = fromBase64(content.getMedia().getBytes());
+                //todo: save media to queuing system
+            }
+
+            media.data.MediaContent meta = mapper.toDataModel(content);
+            return mapper.fromDataModel(mediaRepository.save(meta));
         }
         throw new IllegalArgumentException("content");
     }
 
     @Override
-    public Iterable<media.data.MediaContent> getMediaContents() {
-        return mediaRepository.findAll();
+    public MediaContent getMediaContentById(Long mediaId) {
+        return mapper.fromDataModel(mediaRepository.findOne(mediaId));
     }
 }

@@ -12,7 +12,7 @@ public class MediaContent {
     @GeneratedValue
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String name;
     private String longitude;
     private String latitude;
