@@ -1,12 +1,12 @@
 package provider.services;
 
-import provider.domain.Provider;
+import provider.domain.ServiceProvider;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public interface ProviderService {
-    List<Provider> findAll();
-    Provider fineOneServiceProvider(Long id);
+    List<ServiceProvider> findAll();
+    ServiceProvider fineOneServiceProvider(Long id);
 }

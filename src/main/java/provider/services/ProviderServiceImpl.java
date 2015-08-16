@@ -1,6 +1,6 @@
 package provider.services;
 
-import provider.domain.Provider;
+import provider.domain.ServiceProvider;
 import provider.repository.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,12 +22,12 @@ public class ProviderServiceImpl implements ProviderService {
     }
 
     @Override
-    public List<Provider> findAll() {
+    public List<ServiceProvider> findAll() {
         return personRepository.findAll();
     }
 
     @Override
-    public Provider fineOneServiceProvider(Long id) {
+    public ServiceProvider fineOneServiceProvider(Long id) {
         return personRepository.findOne(id);
     }
 }

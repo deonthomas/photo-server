@@ -1,6 +1,5 @@
 package provider;
 
-import provider.domain.Provider;
 import provider.repository.ProviderRepository;
 import provider.services.ProviderService;
 import provider.services.ProviderServiceImpl;
@@ -9,12 +8,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.rmi.server.ExportException;
-import java.util.List;
-
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.any;
-import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.isNull;
 import static org.mockito.Mockito.when;
 
