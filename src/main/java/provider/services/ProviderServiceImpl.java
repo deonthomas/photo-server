@@ -1,5 +1,6 @@
 package provider.services;
 
+import provider.domain.Accreditation;
 import provider.domain.ServiceProvider;
 import provider.repository.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +30,15 @@ public class ProviderServiceImpl implements ProviderService {
     @Override
     public ServiceProvider fineOneServiceProvider(Long id) {
         return personRepository.findOne(id);
+    }
+
+    @Override
+    public  List<ServiceProvider> getServiceProvidersWithAccreditations(int categoryId) {
+        return null;
+    }
+
+    @Override
+    public List<Accreditation> getServiceProviderAccreditations(int serviceProviderId) {
+        return null;
     }
 }
